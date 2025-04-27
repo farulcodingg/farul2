@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anime Batch - AnimeMu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #121212;
+      --primary-color: #3399ff;
+      --text-color: #ffffff;
+      --accent-color: #66ccff;
+      --card-bg: #1f1f1f;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container { width: 100%; padding: 20px 40px; }
+    .header { background: var(--card-bg); padding: 10px 0; position: sticky; top: 0; z-index: 100; }
+    .header-container { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 1.5em; color: var(--accent-color); font-weight: 600; }
+    .nav a { color: var(--text-color); margin-left: 20px; text-decoration: none; font-weight: 600; transition: color 0.3s; }
+    .nav a:hover { color: var(--accent-color); }
+    .batch-anime { margin-top: 40px; }
+    .section-title { font-size: 24px; margin-bottom: 20px; text-align: center; }
+    .anime-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .anime-card {
+      background: var(--card-bg);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .anime-card:hover { transform: scale(1.03); }
+    .anime-card img { width: 100%; height: 220px; object-fit: cover; }
+    .anime-info { padding: 15px; }
+    .anime-info h3 { font-size: 18px; margin-bottom: 10px; }
+    .anime-info p { font-size: 14px; margin: 5px 0; }
+    .anime-info a { color: var(--accent-color); text-decoration: none; font-weight: bold; }
+    .anime-info a:hover { text-decoration: underline; }
+    .footer { background: var(--card-bg); padding: 20px; text-align: center; margin-top: auto; color: #aaa; }
+
+    @media (max-width: 1024px) { .anime-list { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px) { .anime-list { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .anime-list { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-container">
+    <h1 class="logo">AnimeMu</h1>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="Ongoing.html">Ongoing</a>
+      <a href="batch.html">Batch</a>
+      <a href="movie.html">Movie</a>
+      <a href="genre.html">Genre</a>
+      <a href="season.html">Season</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="batch-anime">
+    <h2 class="section-title">Daftar Batch Anime Lengkap</h2>
+    <input type="text" id="search" placeholder="Cari anime..." 
+    style="margin: 20px 0; padding: 10px; width: 100%; border-radius: 8px; border: none; background: #1f1f1f; color: white; font-size: 16px;">
+    
+    <div class="anime-list">
+
+      <div class="anime-card">
+        <img src="https://cdn.myanimelist.net/images/anime/1704/106947.jpg" alt="Demon Slayer Batch">
+        <div class="anime-info">
+          <h3>Kimetsu no Yaiba Season 1 (Batch)</h3>
+          <p>Jumlah Episode: 26</p>
+          <p>Genre: Action, Supernatural</p>
+          <p>Resolusi: 720p & 1080p</p>
+          <p><a href="#">Download Batch</a></p>
+        </div>
+      </div>
+
+      <div class="anime-card">
+        <img src="https://cdn.myanimelist.net/images/anime/1000/110531.jpg" alt="Attack on Titan Batch">
+        <div class="anime-info">
+          <h3>Shingeki no Kyojin Final Season (Batch)</h3>
+          <p>Jumlah Episode: 28</p>
+          <p>Genre: Action, Drama</p>
+          <p>Resolusi: 1080p</p>
+          <p><a href="#">Download Batch</a></p>
+        </div>
+      </div>
+
+      <div class="anime-card">
+        <img src="https://cdn.myanimelist.net/images/anime/1792/138022.jpg" alt="Jujutsu Kaisen Batch">
+        <div class="anime-info">
+          <h3>Jujutsu Kaisen Season 2 (Batch)</h3>
+          <p>Jumlah Episode: 23</p>
+          <p>Genre: Action, Supernatural</p>
+          <p>Resolusi: 720p & 1080p</p>
+          <p><a href="#">Download Batch</a></p>
+        </div>
+      </div>
+
+      <!-- Kamu bisa tambah anime lain di sini -->
+
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>&copy; 2025 AnimeMu - Semua Hak Dilindungi</p>
+</footer>
+
+<script>
+  document.getElementById('search').addEventListener('input', function(e) {
+    const keyword = e.target.value.toLowerCase();
+    const animeCards = document.querySelectorAll('.anime-card');
+    
+    animeCards.forEach(card => {
+      const title = card.querySelector('h3').innerText.toLowerCase();
+      if (title.includes(keyword)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+  </script>
+  
+
+</body>
+</html>

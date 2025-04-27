@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Overlord Movie 3: Sei Oukoku-hen",
+    "img": "https://upload.wikimedia.org/wikipedia/en/0/0c/Overlord_Movie_3.jpg",
+    "genre": "Action, Fantasy, Game",
+    "season": "Summer 2025"
+  },
+  {
+    "title": "Touhai: Ura Rate Mahjong Toihai Roku",
+    "img": "https://upload.wikimedia.org/wikipedia/en/4/42/Akagi_cover.png",
+    "genre": "Drama, Psychological, Seinen",
+    "season": "Spring 2025"
+  },
+  {
+    "title": "Hitohira",
+    "img": "https://upload.wikimedia.org/wikipedia/en/0/02/Hitohira.jpg",
+    "genre": "Drama, Romance",
+    "season": "Spring 2025"
+  },
+  {
+    "title": "Kimetsu no Yaiba: Mugen Ressha-hen",
+    "img": "https://upload.wikimedia.org/wikipedia/en/2/26/Demon_Slayer_Mugen_Train.jpg",
+    "genre": "Action, Supernatural",
+    "season": "Fall 2025"
+  },
+  {
+    "title": "Jujutsu Kaisen",
+    "img": "https://upload.wikimedia.org/wikipedia/en/e/e6/Jujutsu_kaisen_vol_1_cover.jpg",
+    "genre": "Action, Supernatural, Shounen",
+    "season": "Fall 2025"
+  },
+  {
+    "title": "Attack on Titan Final Season",
+    "img": "https://upload.wikimedia.org/wikipedia/en/8/89/Attack_on_Titan_Season_4_Part_1.jpg",
+    "genre": "Action, Drama, Fantasy",
+    "season": "Winter 2025"
+  },
+  {
+    "title": "Chainsaw Man",
+    "img": "https://upload.wikimedia.org/wikipedia/en/2/2f/Chainsaw_Man_volume_1_cover.jpg",
+    "genre": "Action, Supernatural, Horror",
+    "season": "Fall 2025"
+  },
+  {
+    "title": "Spy x Family",
+    "img": "https://upload.wikimedia.org/wikipedia/en/d/dc/Spy_x_Family_volume_1_cover.jpg",
+    "genre": "Action, Comedy, Slice of Life",
+    "season": "Spring 2025"
+  },
+  {
+    "title": "Blue Lock",
+    "img": "https://upload.wikimedia.org/wikipedia/en/2/22/Blue_Lock_volume_1_cover.jpg",
+    "genre": "Sports, Drama",
+    "season": "Fall 2025"
+  },
+  {
+    "title": "Tokyo Revengers",
+    "img": "https://upload.wikimedia.org/wikipedia/en/f/fb/Tokyo_Revengers_Volume_1.jpg",
+    "genre": "Action, Drama, Supernatural",
+    "season": "Spring 2025"
+  }
+]

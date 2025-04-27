@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ongoing Anime - AnimeMu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #121212;
+      --primary-color: #3399ff;
+      --text-color: #ffffff;
+      --accent-color: #66ccff;
+      --card-bg: #1f1f1f;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container { width: 100%; padding: 20px 40px; }
+    .header { background: var(--card-bg); padding: 10px 0; position: sticky; top: 0; z-index: 100; }
+    .header-container { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 1.5em; color: var(--accent-color); font-weight: 600; }
+    .nav a { color: var(--text-color); margin-left: 20px; text-decoration: none; font-weight: 600; transition: color 0.3s; }
+    .nav a:hover { color: var(--accent-color); }
+    .ongoing-anime { margin-top: 40px; }
+    .section-title { font-size: 24px; margin-bottom: 20px; text-align: center; }
+    .anime-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .anime-card {
+      background: var(--card-bg);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .anime-card:hover { transform: scale(1.05); }
+    .anime-card img { width: 100%; height: 220px; object-fit: cover; }
+    .anime-info { padding: 15px; }
+    .anime-info h3 { font-size: 18px; margin-bottom: 10px; }
+    .anime-info p { font-size: 14px; margin: 5px 0; }
+    .footer { background: var(--card-bg); padding: 20px; text-align: center; margin-top: auto; color: #aaa; }
+
+    @media (max-width: 1024px) { .anime-list { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px) { .anime-list { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .anime-list { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-container">
+    <h1 class="logo">AnimeMu</h1>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="ongoing.html">Ongoing</a>
+      <a href="batch.html">Batch</a>
+      <a href="movie.html">Movie</a>
+      <a href="genre.html">Genre</a>
+      <a href="season.html">Season</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="ongoing-anime">
+    <h2 class="section-title">Daftar Anime Ongoing Minggu Ini</h2>
+    <input type="text" id="search" placeholder="Cari anime..." 
+    style="margin: 20px 0; padding: 10px; width: 100%; border-radius: 8px; border: none; background: #1f1f1f; color: white; font-size: 16px;">
+    <div class="anime-list">
+
+      <div class="anime-card">
+        <img src="https://cdn.myanimelist.net/images/anime/1221/100550.jpg" alt="One Piece">
+        <div class="anime-info">
+          <h3>One Piece</h3>
+          <p>Episode 1100 - <strong>Topi Jerami di Pulau Masa Depan</strong></p>
+          <p>Update: 27 April 2025</p>
+        </div>
+      </div>
+
+      <div class="anime-card">
+        <img src="https://cdn.myanimelist.net/images/anime/1911/113611.jpg" alt="Boku no Hero Academia S7">
+        <div class="anime-info">
+          <h3>Boku no Hero Academia Season 7</h3>
+          <p>Episode 5 - <strong>Kebangkitan Kelas Pahlawan</strong></p>
+          <p>Update: 26 April 2025</p>
+        </div>
+      </div>
+
+      <div class="anime-card">
+        <img src="https://cdn.myanimelist.net/images/anime/1370/140362.jpg" alt="Kaiju No.8">
+        <div class="anime-info">
+          <h3>Kaiju No.8</h3>
+          <p>Episode 6 - <strong>Prajurit Terakhir</strong></p>
+          <p>Update: 25 April 2025</p>
+        </div>
+      </div>
+
+      <div class="anime-card">
+        <img src="https://cdn.myanimelist.net/images/anime/1370/140362.jpg" alt="Kimetsu no Yaiba Hashira Training">
+        <div class="anime-info">
+          <h3>Kimetsu no Yaiba: Hashira Training Arc</h3>
+          <p>Episode 3 - <strong>Semangat Latihan</strong></p>
+          <p>Update: 28 April 2025</p>
+        </div>
+      </div>
+
+      <div class="anime-card">
+        <img src="https://cdn.myanimelist.net/images/anime/1724/117421.jpg" alt="Re Zero Season 3">
+        <div class="anime-info">
+          <h3>Re:Zero Season 3</h3>
+          <p>Episode 2 - <strong>Dunia Baru Subaru</strong></p>
+          <p>Update: 29 April 2025</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>&copy; 2025 AnimeMu - Semua Hak Dilindungi</p>
+</footer>
+
+<script>
+  document.getElementById('search').addEventListener('input', function(e) {
+    const keyword = e.target.value.toLowerCase();
+    const animeCards = document.querySelectorAll('.anime-card');
+
+animeCards.forEach(card => {
+  const title = card.querySelector('h3').innerText.toLowerCase();
+  if (title.includes(keyword)) {
+    card.style.display = 'block';
+  } else {
+    card.style.display = 'none';
+  }
+});
+
+  });
+  </script>
+
+</body>
+</html>

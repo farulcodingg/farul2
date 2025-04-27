@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Genre Anime - AnimeMu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #121212;
+      --primary-color: #3399ff;
+      --text-color: #ffffff;
+      --accent-color: #66ccff;
+      --card-bg: #1f1f1f;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container { width: 100%; padding: 20px 40px; }
+    .header { background: var(--card-bg); padding: 10px 0; position: sticky; top: 0; z-index: 100; }
+    .header-container { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 1.5em; color: var(--accent-color); font-weight: 600; }
+    .nav a { color: var(--text-color); margin-left: 20px; text-decoration: none; font-weight: 600; transition: color 0.3s; }
+    .nav a:hover { color: var(--accent-color); }
+    .genre-anime { margin-top: 40px; }
+    .section-title { font-size: 24px; margin-bottom: 20px; text-align: center; }
+    .genre-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .genre-card {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .genre-card:hover { transform: scale(1.05); }
+    .genre-card h3 { margin-bottom: 10px; color: var(--accent-color); }
+    .genre-card ul { list-style: none; padding: 0; }
+    .genre-card ul li { margin: 8px 0; }
+    .genre-card ul li a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    .genre-card ul li a:hover { color: var(--accent-color); }
+    .footer { background: var(--card-bg); padding: 20px; text-align: center; margin-top: auto; color: #aaa; }
+
+    @media (max-width: 1024px) { .genre-list { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px) { .genre-list { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .genre-list { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-container">
+    <h1 class="logo">AnimeMu</h1>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="ongoing.html">Ongoing</a>
+      <a href="batch.html">Batch</a>
+      <a href="movie.html">Movie</a>
+      <a href="genre.html">Genre</a>
+      <a href="season.html">Season</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="genre-anime">
+    <h2 class="section-title">Genre Anime Populer</h2>
+    <input type="text" id="search" placeholder="Cari anime..." 
+    style="margin: 20px 0; padding: 10px; width: 100%; border-radius: 8px; border: none; background: #1f1f1f; color: white; font-size: 16px;">
+    
+    <div class="genre-list">
+
+      <div class="genre-card">
+        <h3>Action</h3>
+        <ul>
+          <li><a href="#">One Punch Man</a></li>
+          <li><a href="#">Attack on Titan</a></li>
+          <li><a href="#">Demon Slayer</a></li>
+        </ul>
+      </div>
+
+      <div class="genre-card">
+        <h3>Romance</h3>
+        <ul>
+          <li><a href="#">Your Name</a></li>
+          <li><a href="#">Horimiya</a></li>
+          <li><a href="#">Toradora!</a></li>
+        </ul>
+      </div>
+
+      <div class="genre-card">
+        <h3>Isekai</h3>
+        <ul>
+          <li><a href="#">Re:Zero</a></li>
+          <li><a href="#">Mushoku Tensei</a></li>
+          <li><a href="#">No Game No Life</a></li>
+        </ul>
+      </div>
+
+      <div class="genre-card">
+        <h3>Horror</h3>
+        <ul>
+          <li><a href="#">Another</a></li>
+          <li><a href="#">Shiki</a></li>
+          <li><a href="#">Tokyo Ghoul</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>&copy; 2025 AnimeMu - Semua Hak Dilindungi</p>
+</footer>
+
+<script>
+  document.getElementById('search').addEventListener('input', function(e) {
+    const keyword = e.target.value.toLowerCase();
+    const genreCards = document.querySelectorAll('.genre-card');
+    
+    genreCards.forEach(card => {
+      const genreTitle = card.querySelector('h3').innerText.toLowerCase();
+      if (genreTitle.includes(keyword)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+  </script>
+  
+</body>
+</html>
