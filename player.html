@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AnimeMu - Website Streaming Anime Terbaru dan Terlengkap.">
+<meta name="keywords" content="Anime, Streaming Anime, Download Anime, Anime Batch, Anime Ongoing">
+<meta name="author" content="AnimeMu Team">
+
+  <title>Player AnimeMu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #121212;
+      --text-color: #ffffff;
+      --accent-color: #66ccff;
+      --card-bg: #1f1f1f;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .container {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .video-wrapper {
+      width: 100%;
+      max-width: 800px;
+      margin-top: 20px;
+      position: relative;
+      padding-top: 56.25%;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 10px;
+    }
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn {
+      background: var(--accent-color);
+      color: var(--bg-color);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #3399ff;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--card-bg);
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1 id="anime-title">Memuat...</h1>
+  <div class="video-wrapper">
+    <iframe id="video-frame" src="" allowfullscreen></iframe>
+  </div>
+  <div class="buttons" id="buttons"></div>
+</div>
+
+<footer>
+  <p>&copy; 2025 AnimeMu - Semua Hak Dilindungi</p>
+</footer>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const animeId = params.get('id');
+
+const animeList = {
+  "onepiece": { title: "One Piece Episode 1", video: "https://www.youtube.com/embed/yourvideo1", next: "onepiece-ep2" },
+  "onepiece-ep2": { title: "One Piece Episode 2", video: "https://www.youtube.com/embed/yourvideo2", next: null },
+  "kimetsu": { title: "Kimetsu no Yaiba", video: "https://www.youtube.com/embed/yourvideo3", next: null },
+  "jujutsu": { title: "Jujutsu Kaisen", video: "https://www.youtube.com/embed/yourvideo4", next: null },
+  "spyfamily": { title: "Spy x Family", video: "https://www.youtube.com/embed/yourvideo5", next: null },
+};
+
+const titleEl = document.getElementById('anime-title');
+const frameEl = document.getElementById('video-frame');
+const buttonsEl = document.getElementById('buttons');
+
+if (animeList[animeId]) {
+  titleEl.innerText = animeList[animeId].title;
+  frameEl.src = animeList[animeId].video;
+  
+  // Tombol kembali
+  const homeBtn = document.createElement('a');
+  homeBtn.href = "index.html";
+  homeBtn.className = 'btn';
+  homeBtn.innerText = "⬅️ Kembali ke Home";
+  buttonsEl.appendChild(homeBtn);
+
+  // Tombol Next Episode
+  if (animeList[animeId].next) {
+    const nextBtn = document.createElement('a');
+    nextBtn.href = `player.html?id=${animeList[animeId].next}`;
+    nextBtn.className = 'btn';
+    nextBtn.innerText = "➡️ Next Episode";
+    buttonsEl.appendChild(nextBtn);
+  }
+
+} else {
+  titleEl.innerText = "Anime Tidak Ditemukan";
+  frameEl.style.display = 'none';
+
+  const homeBtn = document.createElement('a');
+  homeBtn.href = "index.html";
+  homeBtn.className = 'btn';
+  homeBtn.innerText = "⬅️ Kembali ke Home";
+  buttonsEl.appendChild(homeBtn);
+}
+</script>
+
+</body>
+</html>
